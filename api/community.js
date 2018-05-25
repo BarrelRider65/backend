@@ -33,7 +33,13 @@ var imageList = [];
 
 function scanFiles(res){
     fs.readdir(imgDir,(err,files) => {
-        files.forEach(file => {
+        files.filter(
+            function(element, index, array){
+                // console.log(`=====${index}===${array}==`)
+                return element!=".DS_Store"
+            }
+        )
+        .forEach(file => {
             imageList.push(file);
         });
         res.json(decoratePath(imageList));;
@@ -52,11 +58,13 @@ function decoratePath(imgs){
             users: []
         }
     };
-    imgs.forEach(path =>{
+    imgs.map(function(path){
+        return imgurlbyName(path)
+    }).forEach(path =>{
         result.data.users.push({
             name: "John",
             Age: path.length,
-            avrtar: imgurlbyName(path)
+            avrtar: path
         })
     });
     return result;

@@ -6,8 +6,8 @@ const path = require('path');
 
 
 const app = express();
-
-const port = process.env.port || 9679;
+var config = require('./configs/config')
+const port = process.env.port || config.port;
 
 
 app.use(bodyParser.json());
@@ -15,10 +15,10 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use('/img', express.static(path.join(__dirname,"public/imgs")));
 
 
-var birds = require('./users/bird');
+var birds = require('./api/bird');
 app.use('/birds',birds);
 
-var community = require('./users/community');
+var community = require('./api/community');
 app.use('/community',community);
 
 app.get('/',function(req,res){
