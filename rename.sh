@@ -1,15 +1,26 @@
 #!/bin/bash
-suffix="jpg"
-newext="jpg"
+FORMAT_JPG="jpg"
+FORMAT_JPEG="jpeg"
 index=1
-dir=$(eval pwd)
-for file in $(ls $dir/public/imgs | grep .$suffix)
+dir=$(eval pwd)/public/imgs
+ALLIMGES=$(ls $dir | grep  ".$FORMAT_JPEG\|.$FORMAT_JPG")
+for file in $ALLIMGES
         do
-        index+=1
-        echo $file
-        name = $a+${index}
+        name=img-${index}.jpg
+        echo renaming $dir/$file to  $dir/$name
+        # mv $dir/$file $dir/$name
+        ((index++))
         # name=$(ls $file | cut -d. -f1)
-        # mv $file ${name}.$newext
-        mv $dir/public/imgs/$file ${name}.$suffix
+        # mv $dir/public/imgs/$file ${name}.$suffix
         done
-echo "renaming jpg files =====> x.jpg done!"
+echo "renaming $index image files =====> x.jpg done!"
+
+
+# # rename files using for loops
+# FILES="$(ls *.txt)"
+# NEW="new"
+# for FILE in $FILES
+#     do 
+#         echo "Renaming $FILE to new-${FILE}"
+#         mv $FILE $NEW-$FILE
+# done        
