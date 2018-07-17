@@ -1,20 +1,17 @@
 language: node_js
 node_js:
 - node
-- '7'
-- '4'
-services: mongodb
+#services: mongodb
 cache:
   directories:
   - node_modules
   yarn: true
 before_install:
-- openssl aes-256-cbc -K $encrypted_a2esadsdd792d_key -iv $encrypted_asdsd3792d_iv
-  -in .travis/deploy_key.enc -out deploy_key -d
 - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then echo "this is a pull request build";
   fi
 - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then echo "this is not not not a pull requets
   build"; fi
+- openssl aes-256-cbc -K $encrypted_476ad15a8e52_key -iv $encrypted_476ad15a8e52_iv -in super_secret.txt.enc -out super_secret.txt -d
 - chmod 600 ~/.ssh/id_rsa
 - mv -fv .travis/ssh-config ~/.ssh/config
 - git config --global user.name "BarrelRider65"
