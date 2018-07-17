@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+- node
+- '7'
+- '4'
+services: mongodb
+cache:
+  directories:
+  - node_modules
+  yarn: true
+before_install:
+- openssl aes-256-cbc -K $encrypted_476ad15a8e52_key -iv $encrypted_476ad15a8e52_iv
+  -in .travis/deploy.key.enc -out ~/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
+- mv -fv .travis/ssh-config ~/.ssh/config
+- git config --global user.name "BarrelRider65"
+- git config --global user.email "862785121@qq.com"
+- chmod +x .travis/deploy.sh
+script:
+- sh ./travis/deploy.sh

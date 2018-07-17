@@ -63,3 +63,5 @@ typings/
 *.DS_Store
 
 configs/config.js
+.travis/deploy.key
+.travis/deploy.key.pub
