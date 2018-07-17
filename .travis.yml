@@ -9,7 +9,7 @@ cache:
   - node_modules
   yarn: true
 before_install:
-- openssl aes-256-cbc -K $encrypted_a2ed85d3792d_key -iv $encrypted_a2ed85d3792d_iv
+- openssl aes-256-cbc -K $encrypted_a2esadsdd792d_key -iv $encrypted_asdsd3792d_iv
   -in .travis/deploy_key.enc -out deploy_key -d
 - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then echo "this is a pull request build";
   fi
