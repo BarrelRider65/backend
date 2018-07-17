@@ -6,7 +6,7 @@ dir=$(eval pwd)/public/imgs
 ALLIMGES=$(ls $dir | grep  ".$FORMAT_JPEG\|.$FORMAT_JPG")
 for file in $ALLIMGES
         do
-        name=img-${index}.jpg
+        name=img_${index}.jpg
         echo renaming $dir/$file to  $dir/$name
         # mv $dir/$file $dir/$name
         ((index++))
