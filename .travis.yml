@@ -9,8 +9,7 @@ cache:
   - node_modules
   yarn: true
 before_install:
-- openssl aes-256-cbc -K $encrypted_476ad15a8e52_key -iv $encrypted_476ad15a8e52_iv
-  -in .travis/deploy.key.enc -out ~/.ssh/id_rsa -d
+- openssl aes-256-cbc -K $encrypted_a2ed85d3792d_key -iv $encrypted_a2ed85d3792d_iv -in .travis/deploy.key.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
 - mv -fv .travis/ssh-config ~/.ssh/config
 - git config --global user.name "BarrelRider65"
