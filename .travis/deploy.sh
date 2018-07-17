@@ -6,6 +6,7 @@ node deploy.js
 echo "end of deploy process"
 
 git status
+git fetch -v
 git add .
 # git commit -m "add auto commit file"
 # git push
