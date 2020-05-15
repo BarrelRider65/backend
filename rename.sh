@@ -11,7 +11,8 @@ for file in $ALLIMGES
         # mv $dir/$file $dir/$name
         ((index++))
         # name=$(ls $file | cut -d. -f1)
-        # mv $dir/public/imgs/$file ${name}.$suffix
+        # echo ${name}
+         mv $dir/$file ${dir}/$name
         done
 echo "renaming $index image files =====> x.jpg done!"
 
@@ -20,7 +21,7 @@ echo "renaming $index image files =====> x.jpg done!"
 # FILES="$(ls *.txt)"
 # NEW="new"
 # for FILE in $FILES
-#     do 
+#     do
 #         echo "Renaming $FILE to new-${FILE}"
 #         mv $FILE $NEW-$FILE
-# done        
+# done
